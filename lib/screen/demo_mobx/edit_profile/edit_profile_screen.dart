@@ -40,7 +40,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               height: Dimens.screenPaddingVertical,
             ),
             Text(
-              '(The number of follower here will be update on Home screen also!!! The tech behind this is Provider + MobX store)',
+              '(The number of follower here will be updated on Home screen also!!! The tech behind this is Provider + MobX store)',
               style: TextStyle(fontSize: Dimens.headerTextSize),
               textAlign: TextAlign.center,
             ),
