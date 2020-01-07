@@ -1,4 +1,7 @@
 {
   "app_name": "Nextfunc",
-  "test": "Test"
+  "test": "Test",
+  "test_login_success": "Test Login Success",
+  "test_login_error": "Test Login Error",
+  "message_login_error": "There was an error. Please try again!"
 }

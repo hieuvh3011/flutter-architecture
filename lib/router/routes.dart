@@ -5,7 +5,9 @@ import 'package:flutter_architecture/router/route_handlers.dart';
 class Routes {
   static String root = '/';
   static String homeScreen = '/Home';
-  static String splashScreenNew = '/Splash';
+  static String splashScreen = '/Splash';
+  static String loginScreen = '/Login';
+  static String editProfileScreen = '/EditProfile';
 
   /// PARAMS
   static String paramDisplayName = 'name';
@@ -19,7 +21,9 @@ class Routes {
           '------> ROUTE WAS NOT FOUND !!! Go to routes.dart and route_handlers.dart and add your screen there <-------');
     });
 
-    router.define(splashScreenNew, handler: splashScreenHandler);
+    router.define(splashScreen, handler: splashScreenHandler);
     router.define(homeScreen, handler: homeScreenHandler);
+    router.define(loginScreen, handler: loginScreenHandler);
+    router.define(editProfileScreen, handler: editProfileScreenHandler);
   }
 }

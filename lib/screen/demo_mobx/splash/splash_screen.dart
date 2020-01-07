@@ -8,6 +8,7 @@ import 'package:flutter_architecture/res/images/images.dart';
 import 'package:flutter_architecture/router/routes.dart';
 import 'package:flutter_architecture/theme/colors.dart';
 import 'package:flutter_architecture/theme/dimens.dart';
+import 'package:flutter_architecture/theme/fonts.dart';
 import 'package:flutter_architecture/utils/ui_utils.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -37,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final logoSize = getScreenWidth(context) / 4;
+    final logoSize = getScreenWidth(context) / 3;
     FlutterLocalizations _localization = FlutterLocalizations.of(context);
     String appName = _localization.getString(context, TextName.appName);
 
@@ -47,17 +48,19 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            CircularProgressIndicator(),
+            SizedBox(height: Dimens.screenPaddingVertical,),
             Image.asset(
-                Images.logo,
+                Images.nextfuncLogo,
                 width: logoSize,
                 height: logoSize,
               ),
-            SizedBox(height: Dimens.screenPaddingVertical,),
             Text(
               appName,
               style: TextStyle(
                 color: AppColors.primary,
-                fontSize: Dimens.headerTextSize
+                fontSize: Dimens.headerTextSize,
+                fontFamily: Fonts.Lato
               ),
             )
           ],
@@ -74,11 +77,12 @@ class _SplashScreenState extends State<SplashScreen> {
   ///             OTHER METHODS            ///
   ///~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~///
   _onBuildDone() async {
-
+    await Future.delayed(Duration(milliseconds: 1500));
+    _navigateToLoginScreen();
   }
 
-  _navigateToHomeScreen() {
-    navigateTo(context, '${Routes.homeScreen}',
+  _navigateToLoginScreen() {
+    navigateTo(context, '${Routes.loginScreen}',
         clearStack: true, transition: TransitionType.inFromBottom);
   }
 }
