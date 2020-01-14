@@ -8,6 +8,7 @@ class Routes {
   static String splashScreen = '/Splash';
   static String loginScreen = '/Login';
   static String editProfileScreen = '/EditProfile';
+  static String booksScreen = '/Books';
 
   /// PARAMS
   static String paramDisplayName = 'name';
@@ -25,5 +26,6 @@ class Routes {
     router.define(homeScreen, handler: homeScreenHandler);
     router.define(loginScreen, handler: loginScreenHandler);
     router.define(editProfileScreen, handler: editProfileScreenHandler);
+    router.define(booksScreen, handler: booksScreenHandler);
   }
 }

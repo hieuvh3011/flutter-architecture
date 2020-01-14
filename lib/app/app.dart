@@ -2,7 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/localization/flutter_localizations_delegate.dart';
 import 'package:flutter_architecture/router/routes.dart';
-import 'package:flutter_architecture/screen/demo_mobx/splash/splash_screen.dart';
+import 'package:flutter_architecture/screen/splash/splash_screen.dart';
 import 'package:flutter_architecture/store/app_store.dart';
 import 'package:flutter_architecture/store/profile_store.dart';
 import 'package:flutter_architecture/theme/colors.dart';
