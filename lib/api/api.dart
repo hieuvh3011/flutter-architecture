@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_architecture/api/api_response.dart';
+import 'package:flutter_architecture/api/interceptor.dart';
 import 'package:flutter_architecture/utils/local_storage_utils.dart';
 
 enum ApiMethod { POST, GET, PUT, PATCH }
@@ -36,6 +37,7 @@ class Api {
 
       Api.httpClient = Dio(options);
     }
+    Api.httpClient.interceptors.add(ApiInterceptor());
     return Api.httpClient;
   }
 
@@ -112,11 +114,15 @@ class Api {
   /// This method saves us time not to repeat adding token to header for every api call.
   Future<Options> createDefaultOptions() async {
     String token = await getUserTokenFromLocalStorage();
-    return Options(
-      headers: {
-        Api.AUTHORIZATION: token,
-      },
-    );
+    if (token != null) {
+      return Options(
+        headers: {
+          Api.AUTHORIZATION: token,
+        },
+      );
+    }
+
+    return Options();
   }
 
   /// Parse error message
