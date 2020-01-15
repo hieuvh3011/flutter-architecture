@@ -40,8 +40,12 @@ class _AppState extends State<App> {
       /// Provider is kind of injection in Flutter.
       /// We need to declare any class we want to inject in the app later here.
       providers: [
-        Provider<AppStore>.value(value: AppStore()),
-        Provider<ProfileStore>.value(value: ProfileStore())
+        Provider<AppStore>(
+          create: (_) => AppStore(),
+        ),
+        Provider<ProfileStore>(
+          create: (_) => ProfileStore(),
+        )
       ],
       child: MaterialApp(
           color: AppColors.primary,
