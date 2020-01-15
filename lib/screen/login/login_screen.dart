@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/event/event_manager.dart';
+import 'package:flutter_architecture/event/timer_event.dart';
 import 'package:flutter_architecture/localization/flutter_localizations.dart';
 import 'package:flutter_architecture/localization/text_names.dart';
 import 'package:flutter_architecture/router/routes.dart';
 import 'package:flutter_architecture/store/login_store.dart';
 import 'package:flutter_architecture/theme/colors.dart';
 import 'package:flutter_architecture/theme/dimens.dart';
+import 'package:flutter_architecture/timer/timer.dart';
 import 'package:flutter_architecture/utils/ui_utils.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -15,6 +18,18 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final LoginStore _loginStore = LoginStore();
+
+  @override
+  void initState() {
+    super.initState();
+
+    /// Test event listener
+    AppTimer timer = AppTimer();
+    timer.startTimer(Duration(seconds: 1));
+    EventManager.instance.on<TimerTickEvent>().listen((TimerTickEvent event) {
+      print(event.offset);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
