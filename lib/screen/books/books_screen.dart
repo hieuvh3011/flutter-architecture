@@ -24,7 +24,7 @@ class _BooksScreenState extends State<BooksScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-              // Use localization in real app please!!!
+            // Use localization in real app please!!!
               'Books'),
         ),
         backgroundColor: AppColors.white,
@@ -44,13 +44,27 @@ class _BooksScreenState extends State<BooksScreen> {
       return Container();
     }
 
-    return ListView.builder(
-        itemCount: _booksStore.books?.length,
-        itemBuilder: (context, index) {
-      return BookItem(
-        title: _booksStore.books[index].title,
-        description: _booksStore.books[index].description,
-      );
-    });
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: ListView.builder(
+              itemCount: _booksStore.books?.length,
+              itemBuilder: (context, index) {
+                return BookItem(
+                  title: _booksStore.books[index].title,
+                  description: _booksStore.books[index].description,
+                );
+              }),
+        ),
+        RaisedButton(
+          child: Text(
+            // Use localization in real app please!!!
+              'Get Books (Remote only)'),
+          onPressed: () {
+            _booksStore.getBooks(remoteOnly: true);
+          },
+        )
+      ],
+    );
   }
 }

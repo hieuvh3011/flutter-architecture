@@ -20,11 +20,11 @@ class Book {
 
   Book({
     @required this.title,
-    @required this.url,
+    this.url,
     @required this.id,
-    @required this.author,
+    this.author,
     @required this.description,
-    @required this.subtitle,
+    this.subtitle,
   });
 
   Book.fromMap(Map<String, dynamic> map)

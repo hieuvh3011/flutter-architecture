@@ -1,6 +1,5 @@
-import 'package:flutter_architecture/api/api_response.dart';
-import 'package:flutter_architecture/api/book_api.dart';
 import 'package:flutter_architecture/model/book.dart';
+import 'package:flutter_architecture/repository/book_repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'books_store.g.dart';
@@ -15,13 +14,12 @@ abstract class _BooksStore with Store {
   ObservableList<Book> books = ObservableList<Book>();
 
   @action
-  getBooks() async {
+  getBooks({bool remoteOnly}) async {
     isLoading = true;
 
-    BookApi api = BookApi();
-    ApiResponse apiResponse = await api.getBooks();
     books.clear();
-    books.addAll(apiResponse?.model);
+    BookRepository bookRepository = BookRepository();
+    books.addAll(await bookRepository.loadBooks(remoteOnly: remoteOnly ?? false));
 
     isLoading = false;
   }
