@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/model/book.dart';
-import 'package:flutter_architecture/repository/abstract_book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/abstract_book_repository.dart';
 
 class LocalBookRepository implements AbstractBookRepository {
   /// Mock loading books from local database

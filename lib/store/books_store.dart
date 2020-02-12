@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/model/book.dart';
-import 'package:flutter_architecture/repository/book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/book_repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'books_store.g.dart';

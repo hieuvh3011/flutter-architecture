@@ -1,7 +1,7 @@
 import 'package:flutter_architecture/model/book.dart';
-import 'package:flutter_architecture/repository/abstract_book_repository.dart';
-import 'package:flutter_architecture/repository/local_book_repository.dart';
-import 'package:flutter_architecture/repository/remote_book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/abstract_book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/local_book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/remote_book_repository.dart';
 
 class BookRepository implements AbstractBookRepository {
   @override

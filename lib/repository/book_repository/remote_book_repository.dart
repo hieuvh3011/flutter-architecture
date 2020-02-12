@@ -1,7 +1,7 @@
 import 'package:flutter_architecture/api/api_response.dart';
 import 'package:flutter_architecture/api/book_api.dart';
 import 'package:flutter_architecture/model/book.dart';
-import 'package:flutter_architecture/repository/abstract_book_repository.dart';
+import 'package:flutter_architecture/repository/book_repository/abstract_book_repository.dart';
 
 class RemoteBookRepository implements AbstractBookRepository {
   @override
