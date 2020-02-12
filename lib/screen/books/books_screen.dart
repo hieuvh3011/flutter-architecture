@@ -21,18 +21,21 @@ class _BooksScreenState extends State<BooksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            // Use localization in real app please!!!
-              'Books'),
-        ),
-        backgroundColor: AppColors.white,
-        body: Observer(
-          builder: (_) {
-            return _buildBooksList();
-          },
-        ));
+    return Material(
+      type: MaterialType.transparency,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              // Use localization in real app please!!!
+                'Books'),
+          ),
+          backgroundColor: AppColors.white,
+          body: Observer(
+            builder: (_) {
+              return _buildBooksList();
+            },
+          )),
+    );
   }
 
   _buildBooksList() {

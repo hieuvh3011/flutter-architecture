@@ -1,8 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/localization/flutter_localizations_delegate.dart';
+import 'package:flutter_architecture/notification/notification_manager.dart';
 import 'package:flutter_architecture/router/routes.dart';
 import 'package:flutter_architecture/screen/splash/splash_screen.dart';
+import 'package:flutter_architecture/screen/test.dart';
 import 'package:flutter_architecture/store/app_store.dart';
 import 'package:flutter_architecture/store/profile_store.dart';
 import 'package:flutter_architecture/theme/colors.dart';
@@ -45,6 +47,9 @@ class _AppState extends State<App> {
         ),
         Provider<ProfileStore>(
           create: (_) => ProfileStore(),
+        ),
+        Provider<NotificationManager> (
+          create: (_) => NotificationManager(),
         )
       ],
       child: MaterialApp(
@@ -88,7 +93,7 @@ class _AppState extends State<App> {
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
               primaryIconTheme: IconThemeData(color: Colors.white)),
-          home: SplashScreen()),
+          home: DynamicHeightTest()),
     );
   }
 }
